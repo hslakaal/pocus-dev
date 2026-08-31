@@ -24,7 +24,7 @@ export const Route = createFileRoute("/ivc")({
       },
     ],
   }),
-  component: Ivc;
+  component: Ivc,
 });
 
 function Ivc() {
