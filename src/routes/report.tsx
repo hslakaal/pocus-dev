@@ -32,7 +32,7 @@ function Row({
   label: string;
   value: string;
   highlight?: boolean;
-  flag?: string;
+  flag?: string | undefined;
 }) {
   return (
     <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 border-b border-foreground/5 py-2.5">
