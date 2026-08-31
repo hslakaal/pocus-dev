@@ -14,6 +14,7 @@ import { Route as A4cRouteImport } from './routes/a4c'
 import { Route as IvcRouteImport } from './routes/ivc'
 import { Route as PlaxRouteImport } from './routes/plax'
 import { Route as PsaxRouteImport } from './routes/psax'
+import { Route as ReportRouteImport } from './routes/report'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -40,6 +41,11 @@ const PsaxRoute = PsaxRouteImport.update({
   path: '/psax',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ReportRoute = ReportRouteImport.update({
+  id: '/report',
+  path: '/report',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -47,6 +53,7 @@ export interface FileRoutesByFullPath {
   '/ivc': typeof IvcRoute
   '/plax': typeof PlaxRoute
   '/psax': typeof PsaxRoute
+  '/report': typeof ReportRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -54,6 +61,7 @@ export interface FileRoutesByTo {
   '/ivc': typeof IvcRoute
   '/plax': typeof PlaxRoute
   '/psax': typeof PsaxRoute
+  '/report': typeof ReportRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -62,13 +70,14 @@ export interface FileRoutesById {
   '/ivc': typeof IvcRoute
   '/plax': typeof PlaxRoute
   '/psax': typeof PsaxRoute
+  '/report': typeof ReportRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/a4c' | '/ivc' | '/plax' | '/psax'
+  fullPaths: '/' | '/a4c' | '/ivc' | '/plax' | '/psax' | '/report'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/a4c' | '/ivc' | '/plax' | '/psax'
-  id: '__root__' | '/' | '/a4c' | '/ivc' | '/plax' | '/psax'
+  to: '/' | '/a4c' | '/ivc' | '/plax' | '/psax' | '/report'
+  id: '__root__' | '/' | '/a4c' | '/ivc' | '/plax' | '/psax' | '/report'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -77,6 +86,7 @@ export interface RootRouteChildren {
   IvcRoute: typeof IvcRoute
   PlaxRoute: typeof PlaxRoute
   PsaxRoute: typeof PsaxRoute
+  ReportRoute: typeof ReportRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -116,6 +126,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PsaxRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/report': {
+      id: '/report'
+      path: '/report'
+      fullPath: '/report'
+      preLoaderRoute: typeof ReportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -125,6 +142,7 @@ const rootRouteChildren: RootRouteChildren = {
   IvcRoute: IvcRoute,
   PlaxRoute: PlaxRoute,
   PsaxRoute: PsaxRoute,
+  ReportRoute: ReportRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
