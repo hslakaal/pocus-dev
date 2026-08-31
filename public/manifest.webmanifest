@@ -1,0 +1,17 @@
+{
+  "name": "EchoFlow — POCUS Echo Calculator",
+  "short_name": "EchoFlow",
+  "description": "Mobile point-of-care echocardiography calculator organized by ultrasound view.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#eef2f3",
+  "theme_color": "#0d9488",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ]
+}
