@@ -7,7 +7,6 @@ import {
   ViewShell,
 } from "@/components/echo/ViewShell";
 import { useEchoStore } from "@/lib/use-echo-store";
-import ivcImg from "@/assets/view-ivc.jpg";
 
 export const Route = createFileRoute("/ivc")({
   head: () => ({
@@ -41,7 +40,7 @@ function Ivc() {
           </span>
         }
       >
-        <ViewImage src={ivcImg} alt="Subcostal inferior vena cava ultrasound reference image" />
+        <ViewImage label="Subcostal IVC view" />
         <div className="grid grid-cols-2 gap-4">
           <NumField
             label="IVC max"

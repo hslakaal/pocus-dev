@@ -7,7 +7,6 @@ import {
   ViewShell,
 } from "@/components/echo/ViewShell";
 import { useEchoStore } from "@/lib/use-echo-store";
-import psaxImg from "@/assets/view-psax.jpg";
 
 export const Route = createFileRoute("/psax")({
   head: () => ({
@@ -41,7 +40,7 @@ function Psax() {
           </span>
         }
       >
-        <ViewImage src={psaxImg} alt="Parasternal short axis echocardiogram reference image" />
+        <ViewImage label="PSAX view" />
         <div className="grid grid-cols-2 gap-4">
           <NumField
             label="PSAX diastole"
