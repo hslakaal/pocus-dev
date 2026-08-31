@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { ScanLine } from "lucide-react";
 import type { ReactNode } from "react";
 
 const TOTAL = 6;
@@ -107,16 +108,18 @@ export function NumField({
   );
 }
 
-export function ViewImage({ src, alt }: { src: string; alt: string }) {
+export function ViewImage({ label }: { label: string }) {
   return (
-    <img
-      src={src}
-      alt={alt}
-      loading="lazy"
-      width={1024}
-      height={576}
-      className="mb-4 aspect-[16/9] w-full rounded-lg bg-secondary object-cover outline-1 -outline-offset-1 outline-foreground/5"
-    />
+    <div
+      role="img"
+      aria-label={`${label} reference image placeholder`}
+      className="mb-4 flex aspect-[16/9] w-full flex-col items-center justify-center gap-2 rounded-lg border-2 border-dashed border-foreground/15 bg-secondary text-muted-foreground"
+    >
+      <ScanLine className="size-7 opacity-50" />
+      <p className="px-6 text-center text-[10px] font-semibold uppercase tracking-[0.18em] opacity-70">
+        {label} · image placeholder
+      </p>
+    </div>
   );
 }
 
