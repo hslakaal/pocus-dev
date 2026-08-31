@@ -7,7 +7,6 @@ import {
   ViewShell,
 } from "@/components/echo/ViewShell";
 import { useEchoStore } from "@/lib/use-echo-store";
-import a4cImg from "@/assets/view-a4c.jpg";
 
 export const Route = createFileRoute("/a4c")({
   head: () => ({
@@ -41,7 +40,7 @@ function A4c() {
           </span>
         }
       >
-        <ViewImage src={a4cImg} alt="Apical 4-chamber echocardiogram reference image" />
+        <ViewImage label="A4C view" />
         <div className="grid grid-cols-2 gap-4">
           <NumField
             label="TAPSE"
@@ -49,12 +48,6 @@ function A4c() {
             unit="mm"
             value={data.tapse}
             onChange={(v) => set("tapse", v)}
-          />
-          <NumField
-            label="LVOT diameter"
-            unit="cm"
-            value={data.lvotDiameter}
-            onChange={(v) => set("lvotDiameter", v)}
           />
           <NumField
             label="LVOT VTI"

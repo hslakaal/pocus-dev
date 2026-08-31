@@ -7,7 +7,6 @@ import {
   ViewShell,
 } from "@/components/echo/ViewShell";
 import { useEchoStore } from "@/lib/use-echo-store";
-import plaxImg from "@/assets/view-plax.jpg";
 
 export const Route = createFileRoute("/plax")({
   head: () => ({
@@ -41,7 +40,7 @@ function Plax() {
           </span>
         }
       >
-        <ViewImage src={plaxImg} alt="Parasternal long axis echocardiogram reference image" />
+        <ViewImage label="PLAX view" />
         <div className="grid grid-cols-2 gap-4">
           <NumField
             label="LVEDD"
@@ -59,6 +58,13 @@ function Plax() {
           />
           <NumField label="IVSd" unit="cm" value={data.ivsd} onChange={(v) => set("ivsd", v)} />
           <NumField label="PWd" unit="cm" value={data.pwd} onChange={(v) => set("pwd", v)} />
+          <NumField
+            label="LVOT diameter"
+            hint="inner edge"
+            unit="cm"
+            value={data.lvotDiameter}
+            onChange={(v) => set("lvotDiameter", v)}
+          />
         </div>
         <NextButton label="NEXT VIEW" onClick={() => navigate({ to: "/psax" })} />
       </MeasureCard>
