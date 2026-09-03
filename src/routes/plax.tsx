@@ -1,5 +1,6 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import {
+  CollapsibleInfo,
   MeasureCard,
   NextButton,
   NumField,
@@ -7,6 +8,10 @@ import {
   ViewShell,
 } from "@/components/echo/ViewShell";
 import { useEchoStore } from "@/lib/use-echo-store";
+
+// Defining array
+
+const plax_images = ["public/images/plax/PLAX.gif", "public/images/plax/plax labelled.png"];
 
 export const Route = createFileRoute("/plax")({
   head: () => ({
@@ -34,28 +39,11 @@ function Plax() {
     <ViewShell step={2}>
       <MeasureCard
         title="PLAX · Parasternal Long Axis"
-        badge={
-          <span className="shrink-0 rounded-full bg-primary/10 px-2 py-0.5 text-[9px] font-bold uppercase tracking-widest text-primary">
-            M-mode
-          </span>
-        }
       >
-        <ViewImage label="PLAX view" />
+        <ViewImage label="PLAX view" images={plax_images} />
         <div className="grid grid-cols-2 gap-4">
-          <NumField
-            label="LVEDD"
-            hint="diastolic"
-            unit="cm"
-            value={data.lvedd}
-            onChange={(v) => set("lvedd", v)}
-          />
-          <NumField
-            label="LVESD"
-            hint="systolic"
-            unit="cm"
-            value={data.lvesd}
-            onChange={(v) => set("lvesd", v)}
-          />
+          <NumField label="LVEDD" unit="cm" value={data.lvedd} onChange={(v) => set("lvedd", v)} />
+          <NumField label="LVESD" unit="cm" value={data.lvesd} onChange={(v) => set("lvesd", v)} />
           <NumField label="IVSd" unit="cm" value={data.ivsd} onChange={(v) => set("ivsd", v)} />
           <NumField label="PWd" unit="cm" value={data.pwd} onChange={(v) => set("pwd", v)} />
           <NumField
@@ -67,6 +55,22 @@ function Plax() {
           />
         </div>
         <NextButton label="NEXT VIEW" onClick={() => navigate({ to: "/psax" })} />
+        <CollapsibleInfo title="PLAX Acquisition & Reference Notes">
+          <p className="leading-relaxed">TO BE EDITED</p>
+
+          <div className="overflow-hidden rounded-lg border border-border bg-black">
+            <img
+              src="public/images/plax/PLAX.gif"
+              alt="Reference measurement diagram"
+              className="max-h-48 w-full object-contain"
+            />
+          </div>
+
+          <ul className="list-disc space-y-1 pl-4 text-[11px]">
+            <li>Measure LVEDD at peak of R-wave or onset of QRS.</li>
+            <li>Measure LVESD at minimum cavity dimension or nadir of septal motion.</li>
+          </ul>
+        </CollapsibleInfo>
       </MeasureCard>
     </ViewShell>
   );
