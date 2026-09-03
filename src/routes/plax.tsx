@@ -11,7 +11,7 @@ import { useEchoStore } from "@/lib/use-echo-store";
 
 // Defining array
 
-const plax_images = ["public/images/plax/plax.gif", "public/images/plax/plax labelled.png"];
+const plax_images = ["/images/plax/plax.gif", "/images/plax/plax labelled.png"];
 
 export const Route = createFileRoute("/plax")({
   head: () => ({
