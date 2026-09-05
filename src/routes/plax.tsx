@@ -101,7 +101,7 @@ function Plax() {
                 rel="noopener noreferrer"
                 className="font-medium text-primary underline underline-offset-2 hover:opacity-80"
               >
-                ASE cardiac chamber recommendations
+                ASE cardiac chamber link
               </a>
             </p>
           </div>
