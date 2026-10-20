@@ -1,5 +1,6 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import {
+  CollapsibleInfo,
   MeasureCard,
   NextButton,
   NumField,
@@ -7,6 +8,9 @@ import {
   ViewShell,
 } from "@/components/echo/ViewShell";
 import { useEchoStore } from "@/lib/use-echo-store";
+
+const psax_images = ["/images/psax/midpap.png", "/images/psax/cursorplacement.png", "/images/psax/mmode output.png", "/images/psax/basal.png"];
+
 
 export const Route = createFileRoute("/psax")({
   head: () => ({
@@ -40,22 +44,63 @@ function Psax() {
           </span>
         }
       >
-        <ViewImage label="PSAX view" />
+        <ViewImage label="PSAX view" images={psax_images} />
         <div className="grid grid-cols-2 gap-4">
           <NumField
-            label="PSAX diastole"
+            label="LVEDD"
             unit="cm"
             value={data.psaxDiastole}
             onChange={(v) => set("psaxDiastole", v)}
           />
           <NumField
-            label="PSAX systole"
+            label="LVESD"
             unit="cm"
             value={data.psaxSystole}
             onChange={(v) => set("psaxSystole", v)}
           />
         </div>
         <NextButton label="NEXT VIEW" onClick={() => navigate({ to: "/a4c" })} />
+        <CollapsibleInfo title="PSAX Acquisition & Reference Notes">
+          <div className="space-y-3 text-xs text-muted-foreground">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
+              Parasternal Long Axis (PLAX)
+            </h3>
+
+            <div>
+              <p className="font-medium text-foreground">Probe position:</p>
+              <ul className="list-disc space-y-1 pl-5">
+                <li>From the PLAX position, rotate the probe 90 degrees clockwise</li>
+                <li>Probe points to left shoulder</li>
+                <li>Tilt the probe to get basal, mitral, mid-papillary & apical views</li>
+              </ul>
+            </div>
+
+            <p className="leading-relaxed">
+              Allows visualization of LV,RV, RVOT, Aortic valve,{" "}
+              <a
+                href="https://www.pocus101.com/the-d-sign-right-heart-strain-from-pressure-vs-volume-overload/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-primary underline underline-offset-2 hover:opacity-80"
+              >
+                "D-Sign"
+              </a>
+            </p>
+
+            <div className="space-y-1.5 border-t border-border/40 pt-2">
+              <p className="font-medium text-foreground">
+                For novice echocardiographers, great qualitative view for:
+              </p>
+              <ul className="list-disc space-y-1 pl-5">
+                <li>Global wall thickening</li>
+                <li>Septal flattening (D-sign)</li>
+                <li>Alternative site to obtain LVESD and LVEDD using M-Mode</li>
+              </ul>
+            </div>
+          </div>
+
+
+        </CollapsibleInfo>
       </MeasureCard>
     </ViewShell>
   );
