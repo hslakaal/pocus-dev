@@ -77,7 +77,28 @@ export function ViewShell({
       </div>
 
       {children}
-
+      {/* 👉 CC Attribution Footer */}
+      <footer className="mx-5 pb-2 pt-2 text-center text-[9px] leading-tight text-muted-foreground/60">
+        Cardiac ultrasound imagery courtesy of{" "}
+        <a
+          href="https://icuecho.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline decoration-muted-foreground/30 underline-offset-2 transition-colors hover:text-muted-foreground"
+        >
+          ICU &amp; Echo
+        </a>{" "}
+        (
+        <a
+          href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline decoration-muted-foreground/30 underline-offset-2 transition-colors hover:text-muted-foreground"
+        >
+          CC BY-NC-SA 4.0
+        </a>
+        ).
+      </footer>
       <p className="px-8 pb-8 pt-2 text-center text-[10px] text-muted-foreground">
         EchoFlow · point-of-care reference calculations
       </p>
