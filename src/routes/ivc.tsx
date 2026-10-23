@@ -8,6 +8,12 @@ import {
 } from "@/components/echo/ViewShell";
 import { useEchoStore } from "@/lib/use-echo-store";
 
+const ivc_images = [
+  "/images/IVC/ivc.png",
+  "/images/IVC/ivcdaiameter.png"
+  ]
+
+
 export const Route = createFileRoute("/ivc")({
   head: () => ({
     meta: [
@@ -40,7 +46,7 @@ function Ivc() {
           </span>
         }
       >
-        <ViewImage label="Subcostal IVC view" />
+        <ViewImage label="Subcostal IVC view" images={ivc_images} />
         <div className="grid grid-cols-2 gap-4">
           <NumField
             label="IVC max"
