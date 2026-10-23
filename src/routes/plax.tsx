@@ -11,7 +11,8 @@ import { useEchoStore } from "@/lib/use-echo-store";
 
 // Defining array
 
-const plax_images = ["/images/plax/plax.gif", "/images/plax/plax labelled.png"];
+const plax_images = ["/images/plax/plax.png", "/images/plax/plaxloop.gif"];
+const plax_ref_images = ["/images/plax/lvotdiameter.png", "/images/plax/lvesd.png"];
 
 export const Route = createFileRoute("/plax")({
   head: () => ({
@@ -105,17 +106,12 @@ function Plax() {
               </a>
             </p>
           </div>
-          <div className="overflow-hidden rounded-lg border border-border bg-black">
-            <img
-              src="public/images/plax/PLAX.gif"
-              alt="Reference measurement diagram"
-              className="max-h-48 w-full object-contain"
-            />
-          </div>
+          <ViewImage label="PLAX measurement reference" images={plax_ref_images} />
 
           <ul className="list-disc space-y-1 pl-4 text-[11px]">
-            <li>Measure LVEDD at peak of R-wave or onset of QRS.</li>
-            <li>Measure LVESD at minimum cavity dimension or nadir of septal motion.</li>
+            <li>LV Internal Diameter should be measured perpendicular to the LV long axis</li>
+            <li>Just at the level of the mitral valve tips</li>
+            <li> LVOT diameter is the maximal diameter 5mm from the AV anulus</li>
           </ul>
         </CollapsibleInfo>
       </MeasureCard>
